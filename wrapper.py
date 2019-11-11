@@ -17,6 +17,7 @@ red = colored.fg('red')
 yellow = colored.fg ('yellow')
 blue = colored.fg ('blue')
 white_on_green = colored.fg ('white') + colored.bg ('green')
+white_on_red = colored.fg ('white') + colored.bg ('red')
 reset = colored.attr('reset')
 
 
@@ -28,9 +29,9 @@ except:
     pass
 
 
-i_lines = []    #store input lines
+i_lines = []    #store Input lines
 c_lines = []    #store Correct Lines  (output file)
-o_lines = []    #store my output
+o_lines = []    #store my Output
 
 
 with open (os.path.dirname(os.path.realpath(__file__)) + "/" + ex_to_launch + "/sample/" + input_to_open ,"r") as f:
@@ -39,17 +40,13 @@ with open (os.path.dirname(os.path.realpath(__file__)) + "/" + ex_to_launch + "/
 with open (os.path.dirname(os.path.realpath(__file__)) + "/" + ex_to_launch + "/sample/" + output_to_compare ,"r") as f:
     c_lines = f.readlines ()
 
-
+##################################################
 sys.stdin = i_lines
-
-
-####################################################################################################################
 stream = io.StringIO()
 with redirect_stdout(stream):
     exo = __import__ (ex_to_launch+'.'+ex_to_launch)
 o_lines = stream.getvalue().split("\n")[0:-1]
-
-#####################################################################################################################
+##################################################
 #print (o_lines)
 
 are_tests_ok = True
@@ -58,7 +55,7 @@ if len(c_lines)!=len(o_lines):
     print (red  + f"KO nb of line differ from corrects lines ({len(c_lines)}) to my lines ({len(o_lines)})") 
     are_tests_ok = False
 else :
-    print (blue + f"Nb of result lines are matching {len(c_lines)}")
+    print (blue + f"Nb of result lines are matching ({len(c_lines)})")
 
 for i,l in enumerate (c_lines):
     if i< len (o_lines):
@@ -70,5 +67,7 @@ for i,l in enumerate (c_lines):
 
 if are_tests_ok==True:
     print (white_on_green + "Hey, tests seem's ok !")
+else:
+    print (white_on_red + "Don't give up, try again :)")
 
 print (reset, end='')

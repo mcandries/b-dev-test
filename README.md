@@ -20,17 +20,15 @@ pip install colored
 ```
 
 ### Setup a new exercice
-for each exercice, create a folder - exemple : my_exo_1 - and a python script inside witj the same name.
+for each exercice, create a folder and a python script inside with the same name.
 Exemple : ./my_exo1/my_exo1.py
 
-Inside the exercice foldre create a "sample" folder and put in it the input/output files.
+Inside the exercice folder create a "sample" folder and put in it the input/output files from battle dev.
 
 
 ### Launch your code 
 
-Write your code in the exercice file, exemple in ./my_exo1/my_exo1.py
-
-**In your code, you need to put all output line in the **
+Write your code in the exercice file, exemple in ./my_exo1/my_exo1.py, as it is in the web interface of battle Dev.
 
 In Wrapper.py, change the settings with the exercice you working on :
 
@@ -42,4 +40,4 @@ output_to_compare = "output1.txt"
 
 Simply launch wrapper.py
 
-If you using VSCODE, launch.json is set to always launching ./wrapper.py, so you can F5 directly from exercice tab to launch it with wrapper.
+If using VSCODE, launch.json is set to always launching ./wrapper.py with the current openned script, so you can F5 directly from exercice tab to launch it with wrapper :)

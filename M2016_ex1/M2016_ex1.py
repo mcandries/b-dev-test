@@ -10,4 +10,4 @@ for line in sys.stdin:
 	lines.append(line.rstrip('\n'))
 
 
-print ('149')
+print ('1491')
