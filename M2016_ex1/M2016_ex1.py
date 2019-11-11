@@ -9,5 +9,8 @@ lines = []
 for line in sys.stdin:
 	lines.append(line.rstrip('\n'))
 
+size_tab = []
+for line in lines:
+	size_tab.append (len (line))
 
-print ('1491')
+print (max (size_tab))
