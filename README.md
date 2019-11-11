@@ -24,14 +24,17 @@ pip install colored
 **From VSCODE Task :**
 
 Ctrl+alt+T ==> "Init VENV"
+
 Then select the new venv as venv for the project, and install linter.
 
 after done :
+
 Ctrl+alt+T ==> "Install modules"
 
 
 ## Setup a new exercice
 for each exercice, create a folder and a python script inside with the same name.
+
 Exemple : ./my_exo1/my_exo1.py
 
 Inside the exercice folder create a "sample" folder and put in it the input/output files from battle dev.
