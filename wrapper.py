@@ -41,7 +41,7 @@ with open (os.path.dirname(os.path.realpath(__file__)) + "/" + ex_to_launch + "/
     c_lines = f.readlines ()
 
 ##################################################
-sys.stdin = i_lines
+sys.stdin = io.StringIO(''.join(i_lines))
 stream = io.StringIO()
 with redirect_stdout(stream):
     exo = __import__ (ex_to_launch+'.'+ex_to_launch)

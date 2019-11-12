@@ -5,6 +5,9 @@
 #* ***/
 import sys
 
-lines = []
-for line in sys.stdin:
-	lines.append(line.rstrip('\n'))
+sys.stderr.write (input())
+sys.stderr.write (input())
+
+#N = int (input())
+#NUM = map (int, input().split())
+#sys.stderr.write(str(NUM))
