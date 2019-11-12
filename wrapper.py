@@ -3,8 +3,8 @@
 
 ################################ SETTINGS
 ex_to_launch = "M2016_ex1"
-input_to_open = "input2.txt"
-output_to_compare = "output2.txt"
+input_to_open = "input5.txt"
+output_to_compare = "output5.txt"
 ################################
 
 import sys
