@@ -2,8 +2,13 @@
 #* Read input from STDIN
 #* Use: echo or print to output your result to STDOUT, use the /n constant at the end of each result line.
 #* Use: sys.stderr.write() to display debugging information to STDERR
-#* ***/
+#* ***
 import sys
+
+####################
+#print ("YYYYYYYYYYYYYYYYYY")
+#quit()
+####################
 
 N = int (input())
 #NUM = [map (int, input().split())]
@@ -12,8 +17,8 @@ NUM= [int(i) for i in input().split() ]
 AVERAGE = N/2
 
 #sys.stderr.write(str(N) + "\n")
-sys.stderr.write('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   ' + str(N) +  "seeking value :" + str(AVERAGE) + "\n")
-sys.stderr.write(' '.join(map(str,NUM)) + "\n")
+#sys.stderr.write('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   ' + str(N) +  "seeking value :" + str(AVERAGE) + "\n")
+#sys.stderr.write(' '.join(map(str,NUM)) + "\n")
 
 
 

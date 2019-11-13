@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/wrapper.py",
-            "args": ["${fileBasenameNoExtension}"],
+            "args": ["${fileBasenameNoExtension}", "--all-samples"],
             "console": "integratedTerminal"
         }
     ]
