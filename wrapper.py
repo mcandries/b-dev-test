@@ -27,10 +27,16 @@ white_on_yellow = reset + colored.fg ('white') + colored.bg ('yellow')
 white_on_red = reset + colored.fg ('white') + colored.bg ('red')
 white = reset + colored.fg ('white')
 
+are_tests_ok = True
+missing_file = False
+nb_input_file = 0
 
 ############################################### Functions
 
 def exec_exe (p_ex_to_launch, p_input_to_open, p_output_to_compare ):
+
+    global are_tests_ok
+
     i_lines = []    #store Input lines
     c_lines = []    #store Correct Lines  (output file)
     o_lines = []    #store my Output
@@ -91,9 +97,7 @@ except:
 
 
 
-are_tests_ok = True
-missing_file = False
-nb_input_file = 0
+
 if not all_sample:
     exec_exe (ex_to_launch, input_to_open, output_to_compare  )
     nb_input_file +=1
