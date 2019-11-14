@@ -5,9 +5,19 @@
 #* ***/
 import sys
 
-initial_place = input ()
+my_place = int(input ())
 
-for i in range (41):
-    gain, perte = map (int,input().split())
+for i in range (42):
+    perte, gain = map (int,input().split())
+    my_place -= gain-perte
 
-pass
+gain = 0
+if my_place<=100:
+    gain += 1000
+elif my_place<=10000:
+    gain += 100
+
+if gain==0:
+    print ("KO")
+else:
+    print (gain)

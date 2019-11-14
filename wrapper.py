@@ -11,6 +11,7 @@ import sys, os, glob, io
 import colored
 from contextlib import redirect_stdout
 from importlib import reload
+import importlib
 import subprocess
 
 root_dir = os.path.dirname(os.path.realpath(__file__))
@@ -30,12 +31,16 @@ white = reset + colored.fg ('white')
 are_tests_ok = True
 missing_file = False
 nb_input_file = 0
+mod_loaded = False
+mod = ""
 
 ############################################### Functions
 
 def exec_exe (p_ex_to_launch, p_input_to_open, p_output_to_compare ):
 
     global are_tests_ok
+    global mod_loaded
+    global mod
 
     i_lines = []    #store Input lines
     c_lines = []    #store Correct Lines  (output file)
@@ -52,17 +57,27 @@ def exec_exe (p_ex_to_launch, p_input_to_open, p_output_to_compare ):
     sys.stderr.write(white +'CORRECT OUTPUT  DATA :\n ' + ''.join(c_lines[:]) + "\n\n")
 
     ##################################################
-    #sys.stdin = io.StringIO(''.join(i_lines))
-    #stream = io.StringIO()
-    #with redirect_stdout(stream):
-        ###### exo = __import__ (p_ex_to_launch+'.'+p_ex_to_launch)
-    #o_lines = stream.getvalue().split("\n")[0:-1]
+    sys.stdin = io.StringIO(''.join(i_lines))
+    stream = io.StringIO()
+    with redirect_stdout(stream):
+        #if not mod_loaded:
+        #    mod = __import__ (p_ex_to_launch+'.'+p_ex_to_launch)
+        #    mod_loaded = True
+        #else:
+        #    mod = reload (mod)
+        name = p_ex_to_launch+'.'+p_ex_to_launch
+        spec = importlib.util.find_spec(name)
+        modul = importlib.util.module_from_spec(spec)
+        sys.modules[name] = modul
+        spec.loader.exec_module(modul)
 
-    scrpt = os.path.join (root_dir, p_ex_to_launch, p_ex_to_launch + ".py")
-    o_lines = subprocess.run(["python",scrpt], capture_output=True, text=True, input=''.join(i_lines) ).stdout
-    if o_lines[-1:]=="\n":
-        o_lines=o_lines[0:-1]
-    o_lines = o_lines.split('\n')
+    o_lines = stream.getvalue().split("\n")[0:-1]
+
+    #scrpt = os.path.join (root_dir, p_ex_to_launch, p_ex_to_launch + ".py")
+    #o_lines = subprocess.run(["python",scrpt], capture_output=True, text=True, input=''.join(i_lines) ).stdout
+    #if o_lines[-1:]=="\n":
+    #    o_lines=o_lines[0:-1]
+    #o_lines = o_lines.split('\n')
 
     ##################################################
     #print (o_lines)
