@@ -2,9 +2,9 @@
 
 
 ################################ SETTINGS
-ex_to_launch = "M2016_ex1"
-input_to_open = "input5.txt"
-output_to_compare = "output5.txt"
+ex_to_launch = "M2017_BD_ex5"
+input_to_open = "input6.txt"
+output_to_compare = "output6.txt"
 ################################
 
 import sys, os, glob, io
@@ -101,12 +101,12 @@ def exec_exe (p_ex_to_launch, p_input_to_open, p_output_to_compare ):
 
 all_sample = False
 try :
-    if len (sys.argv[1])!=0:
+    if len (sys.argv[1])!=0 and sys.argv[1]!="wrapper" :
         print (blue + "Using ARG as exercice to launch : " + sys.argv[1])
         ex_to_launch = sys.argv[1]
-
-    if len (sys.argv[2])!=0 and sys.argv[2]=="--all-samples" :
-        all_sample = True
+        
+        if len (sys.argv[2])!=0 and sys.argv[2]=="--all-samples" :
+            all_sample = True
 except:
     pass
 
