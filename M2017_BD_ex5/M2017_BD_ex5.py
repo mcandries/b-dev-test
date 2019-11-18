@@ -30,7 +30,6 @@ def find_past (space):
             if c == "O":
                 return [i_c, i_l]
 
-win_time = 0
 def next_space_time (prev):
     """ futur = list ()
     for i_l, l in enumerate (prev):
