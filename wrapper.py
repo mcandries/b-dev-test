@@ -3,8 +3,8 @@
 
 ################################ SETTINGS
 ex_to_launch = "M2017_BD_ex5"
-input_to_open = "input6.txt"
-output_to_compare = "output6.txt"
+input_to_open = "input1.txt"
+output_to_compare = "output1.txt"
 ################################
 
 import sys, os, glob, io
@@ -111,7 +111,7 @@ except:
     pass
 
 
-
+all_sample = False
 
 if not all_sample:
     exec_exe (ex_to_launch, input_to_open, output_to_compare  )
